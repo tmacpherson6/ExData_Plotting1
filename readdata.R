@@ -22,7 +22,7 @@ library(dplyr)
 library(lubridate)
 
 # Read data into R
-data<-read.table("./data/UnzipedData/household_power_consumption.txt",sep=";",skip=1,na.strings=)
+data<-read.table("./data/UnzipedData/household_power_consumption.txt",sep=";",skip=1,na.strings="?")
 head(data)
 dim(data)
 str(data)
@@ -41,6 +41,5 @@ data<-filter(data,date == "2007-02-01" | date == "2007-02-02")
 
 # Convert time classes in R using lubridate
 data$time<-hms(data$time)
-
 
 # We now have a manageable subset of data showing proper date and time format
