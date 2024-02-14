@@ -14,18 +14,33 @@ dateDownloaded<-date()
 
 # Unzip the downloaded files
 zipF<-"./data/Dataset.zip"
-outDir<-",/data/UnzipedData"
+outDir<-"./data/UnzipedData"
 unzip(zipF,exdir=outDir)
 
 # Load Libraries
 library(dplyr)
+library(lubridate)
 
 # Read data into R
-data<-read.csv("./data/UnzipedData/")
+data<-read.table("./data/UnzipedData/household_power_consumption.txt",sep=";",skip=1,na.strings=)
 head(data)
+dim(data)
 str(data)
 
+# Name columns for understanding
+colnames(data)<-c("date","time","global_active_power",
+                  "global_reactive_power","voltage",
+                  "global_intensity","sub_metering_1",
+                  "sub_metering_2","sub_metering_3")
+
+# Convert date classes in R for easy sub-setting
+data$date<-as.Date(data$date,"%d/%m/%Y")
+  
 # Subset Data on 2007-02-01 and 2007-02-02
-data<-select(data,date=="2007-02-01" & date =="2007-02-01")
-head(data)
-str(data)
+data<-filter(data,date == "2007-02-01" | date == "2007-02-02")
+
+# Convert time classes in R using lubridate
+data$time<-hms(data$time)
+
+
+# We now have a manageable subset of data showing proper date and time format
