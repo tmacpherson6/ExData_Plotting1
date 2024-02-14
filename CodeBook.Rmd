@@ -32,5 +32,19 @@ This repository contains 5 R coding files and 4 png vector files
 3) plot3.png - Energy Sub Metering Line Graph  
 4) plot4.png - 2x2 Matrix with multiple plots
 
+## Variable Description and Units
+datetime - combination of Date and time in POSIXct  
+global_active_power - household global minute-averaged active power in kilowatts  
+global_reactive_power - household golbal minute averaged reactive power in kilowatts  
+voltage - minute-averaged voltage in volts  
+global_intensity - household global minute-averaged current intensity in amphere  
+sub_metering_1 - energy sub metering No.1 in watt hour active energy
+sub_metering_2 - energy sub metering No.2 in watt hour active energy
+sub_metering_3 - energy sub metering No.3 in watt hour active energy
+
 ## Data Transformation
-Initially, our working directory was checked for an existing directory "./data". If that didn't exist, it was created to store our raw data. Data was accessed from the URL: https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip. This data was then unzipped and stored in a folder titled "UnzipedData". Data was then read into R using data.table with sep=";" and NA values represented as "?". Skipping 1 line for headers.  
+R Version - 4.3.2
+lubridate Version - 1.9.3
+dplyr Version - 1.1.4
+
+Initially, our working directory was checked for an existing directory "./data". If that didn't exist, it was created to store our raw data. Data was accessed from the URL: https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip. This data was then unzipped and stored in a folder titled "UnzipedData". Data was then read into R using data.table with sep=";" and NA values represented as "?". Skipping 1 line for headers. We then added descriptive column names for ease of use. Date was then coerced into a date format in order to subset the data down to a smaller data set. We then used lubridate and dplyr libraries to create a variable "datetime" where we combined the date and time fields and then coerced it into a POSIXct format. Finally, we used the select feature of the dplyr package to organize and rearrange the columns of our data. This finalized dataset was used to create all plots. 
