@@ -112,3 +112,7 @@ The four plots that you will need to construct are shown below.
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
+
+## Additional Files 
+readdata.R is used to read the raw data into R and to make a tidy dataset. 
+plotX.R are all of the files containing R code to generate the corresponding plots
