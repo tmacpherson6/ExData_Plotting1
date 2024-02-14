@@ -52,7 +52,7 @@ data<-select(data,datetime,
 # We now have a manageable subset of data showing proper date and time format
 
 # Open Graphic Device
-png(filename="plot3.png",width=480,height=480,units="px")
+png(filename="plot4.png",width=480,height=480,units="px")
 
 # Create proper layout
 par(mfrow=c(2,2))
