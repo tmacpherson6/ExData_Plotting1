@@ -1,4 +1,4 @@
-## Global active power histogram Base Graphics
+## Global active power histogram with Base Graphics
 
 # Open Graphics Device (PNG File)
 png(filename="plot1.png",width=480,height=480,units="px")
