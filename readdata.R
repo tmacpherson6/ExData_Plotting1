@@ -39,7 +39,15 @@ data$date<-as.Date(data$date,"%d/%m/%Y")
 # Subset Data on 2007-02-01 and 2007-02-02
 data<-filter(data,date == "2007-02-01" | date == "2007-02-02")
 
-# Convert time classes in R using lubridate
-data$time<-hms(data$time)
+# Combine date/time and convert classes in R using lubridate
+data<-mutate(data,datetime=paste(date,time))
+
+data$datetime<-ymd_hms(data$datetime)
+
+#Organize the data and only get what we need
+data<-select(data,datetime,
+             global_active_power,global_reactive_power,
+             voltage,global_intensity,sub_metering_1,
+             sub_metering_2,sub_metering_3)
 
 # We now have a manageable subset of data showing proper date and time format
