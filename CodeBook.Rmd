@@ -1,0 +1,36 @@
+---
+title: "CodeBook"
+author: "Thomas MacPherson"
+date: "2024-02-14"
+output: pdf_document
+---
+
+=======================
+Code Book for Assignment 1 - Exploratory Data Analysis
+Thomas MacPherson
+2024-02-14
+=======================
+
+## Files
+
+This repository contains 5 R coding files and 4 png vector files  
+
+1) readdata.R - A comprehensive R coding file dictating how the data was preprocessed prior to plot generation  
+
+### Plotting files  
+**All plotting files also contain the R code to process the original raw data**
+
+2) plot1.R - code to generate Global Active Power histogram  
+3) plot2.R - code to generate Global Active Power useage line graph  
+4) plot3.R - code to generate Energy Sub Metering line graph  
+5) plot4.R - code to generate 2x2 plot matrix of multiple plots
+
+### Vector files
+**Vector .png files are the output of the previous R coding files**
+1) plot1.png - Global Active Power Frequency Histogram  
+2) plot2.png - Global Active Power Useage Line Graph  
+3) plot3.png - Energy Sub Metering Line Graph  
+4) plot4.png - 2x2 Matrix with multiple plots
+
+## Data Transformation
+Initially, our working directory was checked for an existing directory "./data". If that didn't exist, it was created to store our raw data. Data was accessed from the URL: https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip. This data was then unzipped and stored in a folder titled "UnzipedData". Data was then read into R using data.table with sep=";" and NA values represented as "?". Skipping 1 line for headers.  
